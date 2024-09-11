@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Tempo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .contador {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contador h1 {
+            margin-bottom: 20px;
+        }
+        .tempo {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contador">
+    <img src="buelu.jpg" style="width: 20rem;" alt="">
+    <div class="tempo" id="tempo" style="font-size: 3rem;"></div>
+</div>
+
+<script>
+    function atualizarContador() {
+        const dataInicial = new Date('2022-04-15T00:00:00');
+        const dataAtual = new Date();
+        let diferenca = dataAtual - dataInicial;
+
+        const segundos = Math.floor((diferenca / 1000) % 60);
+        const minutos = Math.floor((diferenca / 1000 / 60) % 60);
+        const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+        const dias = Math.floor((diferenca / (1000 * 60 * 60 * 24)) % 30);
+        const meses = Math.floor((diferenca / (1000 * 60 * 60 * 24 * 30)) % 12);
+        const anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
+
+        document.getElementById('tempo').innerHTML = 
+            `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+</script>
+
+</body>
+</html>
