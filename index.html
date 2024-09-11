@@ -28,25 +28,41 @@
             margin-bottom: 20px;
         }
         .tempo {
-            font-size: 1.5em;
+            font-size: 3rem;
         }
         footer {
             margin-top: 20px;
             font-size: 1rem;
             color: #555;
         }
-        
-        
+
+        /* Media query for smaller screens (mobile devices) */
+        @media (max-width: 768px) {
+            .tempo {
+                font-size: 2rem; /* Decrease font size on mobile */
+            }
+            .contador img {
+                width: 15rem; /* Adjust image size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tempo {
+                font-size: 1.3rem; /* Further decrease font size for very small screens */
+            }
+            .contador img {
+                width: 10rem; /* Further adjust image size for smaller devices */
+            }
+        }
     </style>
 </head>
 <body>
 <div class="contador">
     <img src="buelu.png" style="width: 20rem;" alt="">
-    <div class="tempo" id="tempo" style="font-size: 3rem;"></div>
+    <div class="tempo" id="tempo"></div>
 </div>
 
 <link href="https://fonts.font.im/css?family=Sacramento" rel="stylesheet">
-
 
 <footer style="color: #fff;">
     feito com ❤️ por Bruno Prado
